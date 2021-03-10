@@ -1,24 +1,32 @@
 import unittest
 import time
 from selenium import webdriver
+from ddt import ddt, data, unpack
 
+@ddt
 class GmailLoginTest(unittest.TestCase):
+
+    #Open login page
     def setUp(self) -> None:
-        print('setup')
+        self.driver = webdriver.Chrome()
+        self.driver.maximize_window()
+        self.driver.get('https://accounts.google.com/Login')
+        self.driver.implicitly_wait(10)
 
+    #Close web broser
     def tearDown(self) -> None:
-        print('tear down')
+        self.driver.quit()
 
-    def test_1(self):
-        driver = webdriver.Chrome()
-        driver.maximize_window()
-        driver.get('https://accounts.google.com/Login')
-        driver.implicitly_wait(2)
-        driver.find_element_by_id('identifierId').send_keys('TTtestTTtestTT1@gmail.com')
+    #Login using different username/password
+    @data(['TTtestTTtestTT1@gmail.com', 'Roblox123'], ['TTtestTTtestTT1@gmail.com', 'HelloWorld'])
+    @unpack
+    def test_1(self, username,password):
+        self.driver.find_element_by_id('identifierId').send_keys(username)
         time.sleep(2)
-        driver.find_element_by_xpath('//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]/div[2]').click()
-        driver.find_element_by_name('password').send_keys('Roblox123')
+        self.driver.find_element_by_xpath('//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]/div[2]').click()
+        self.driver.find_element_by_name('password').send_keys(password)
         time.sleep(2)
+
 
 if __name__ == '__main__':
     unittest.main()
