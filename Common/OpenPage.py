@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 from ddt import ddt, data, unpack
 
-
+#Read user data from TXT file
 def readUserData():
     file = open('IDPWD.txt', mode='r', encoding='utf8')
     NamePwds = []
@@ -31,7 +31,7 @@ class GmailLoginTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.driver.quit()
 
-    #Login using different username/password
+    #Login using different username/password.
     @data(*readUserData())
     @unpack
     def test_1(self, username,password):
