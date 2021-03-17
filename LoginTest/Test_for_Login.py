@@ -9,7 +9,7 @@ TXT file includes different types of correct user name and password.
 It could include phone number further to test.
 """
 def readUserData():
-    file = open('IDPWD.txt', mode='r', encoding='utf8')
+    file = open('C:\DevTesters\PycharmProjects\WebPageTest\Data\IDPWD.txt', mode='r', encoding='utf8')
     NamePwds = []
 
     #Get content line by line and transfer to list group.
@@ -88,7 +88,30 @@ class GmailLoginTest(unittest.TestCase):
             "//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/span[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]")
         self.assertEqual(isFound.text, "Enter a valid email or phone number", msg="Prompt for non-Email is wrong")
 
-    # #Try yaml files
+    #skip this test case unconditionally
+    #Login with nothing input
+    @unittest.skip('less used scenario')
+    def test_5(self):
+        self.driver.find_element_by_xpath(
+            '//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/button[1]/div[2]').click()
+        self.driver.implicitly_wait(10)
+        isFound = self.driver.find_element_by_xpath(
+            "//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/span[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]")
+        self.assertEqual(isFound.text, "Enter an email or phone number", msg="Prompt for none input in Email is wrong")
+
+    #Pseudo test case, not include in test suite.
+    def test_6(self):
+        print("A predo test case")
+
+    #login with white space input
+    def test_7(self):
+        self.InputEmail(" ")
+        isFound = self.driver.find_element_by_xpath(
+            "//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/span[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]")
+        self.assertEqual("Enter an email or phone number", isFound.text, msg="Prompt for white space input is wrong")
+
+
+# #Try yaml files
     # @file_data('yamlToPrint.yaml')
     # def test_2(self, **user):
     #     print(user.get('Sex'))
