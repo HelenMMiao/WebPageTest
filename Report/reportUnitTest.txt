@@ -1,0 +1,37 @@
+test_1_1___TTtestTTtestTT1_gmail_com____Roblox123__ (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_1_2___TTtestTTtestTT1____Roblox123__ (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_1_3____642222222____222222__ (LoginTest.Test_for_Login.GmailLoginTest) ... ERROR
+test_2_1___TTtestTTtestTT1_gmail_com____Hellow__ (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_3_1_fdsd_fafdasdj_com (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_4_1_test_test (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_4_2_TTtestTTtestTT1__gmail_com (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_5 (LoginTest.Test_for_Login.GmailLoginTest) ... skipped 'less used scenario'
+test_6 (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+test_7 (LoginTest.Test_for_Login.GmailLoginTest) ... ok
+
+======================================================================
+ERROR: test_1_3____642222222____222222__ (LoginTest.Test_for_Login.GmailLoginTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Automaion\Python39\lib\site-packages\ddt.py", line 182, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\DevTesters\PycharmProjects\WebPageTest\LoginTest\Test_for_Login.py", line 60, in test_1
+    self.InputPassword(password)
+  File "C:\DevTesters\PycharmProjects\WebPageTest\LoginTest\Test_for_Login.py", line 46, in InputPassword
+    self.driver.find_element_by_name('password').send_keys(password)
+  File "C:\Automaion\Python39\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 496, in find_element_by_name
+    return self.find_element(by=By.NAME, value=name)
+  File "C:\Automaion\Python39\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "C:\Automaion\Python39\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Automaion\Python39\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":"[name="password"]"}
+  (Session info: chrome=89.0.4389.90)
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 129.812s
+
+FAILED (errors=1, skipped=1)

@@ -2,6 +2,7 @@ import unittest
 from LoginTest.Test_for_Login import GmailLoginTest
 import os
 from HTMLTestRunner import HTMLTestRunner
+import BeautifulReport
 
 
 #Create a test suite
@@ -24,28 +25,34 @@ suite.addTests(unittest.TestLoader().loadTestsFromTestCase(GmailLoginTest))
 
 
 
+
 # Run cases in suite
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    # Run cases using unittest in python IDE
 #     runner = unittest.TextTestRunner()
 #     runner.run(suite)
     # runner.run(discover)
 
+    '''Generate test reports using multiple methods
+    -----------------------------------------------'''
 
-'''Generate test report using HTMLTestRunner'''
-# Define report's name and title
-report_name = "Test Report.html"
-report_path = './Report/'
-report_file = report_path + report_name
-report_title = "Test Result for login module"
-report_description = "Test result for login module with both valid and invalid input, also covering error guessing input"
+    '''Using HTMLTestRunner to generate report'''
+    # # Define report's name and title
+    # report_name = "Test Report.html"
+    # report_path = './Report/'
+    # report_file = report_path + report_name
+    # report_title = "Test Result for login module"
+    # report_description = "Test result for login module with both valid and invalid input, also covering error guessing input"
+    # # Create report folder if it does not exist.
+    # if not os.path.exists(report_path):
+    #     os.mkdir(report_path)
+    # else:
+    #     pass
+    # # run cases from HTMLRunner and generate report
+    # with open(report_file, 'w') as report:
+    #     runner = HTMLTestRunner.HTMLTestRunner(stream=report, title=report_title, description=report_description)
+    #     runner.run(suite)
 
-#Create report folder if it does not exist.
-if not os.path.exists(report_path):
-    os.mkdir(report_path)
-else:
-    pass
-
-#run cases from HTMLRunner and generate report
-with open(report_file, 'w') as report:
-    runner = HTMLTestRunner.HTMLTestRunner(stream=report, title=report_title, description=report_description)
-    runner.run(suite)
+    '''Generate test report using Unittest'''
+    with open('Report/reportUnitTest.txt', 'w+') as report:
+        unittest.TextTestRunner(stream= report, verbosity=2).run(suite)
