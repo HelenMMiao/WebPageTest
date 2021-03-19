@@ -29,7 +29,7 @@ class GmailLoginTest(unittest.TestCase):
         self.driver.get('https://accounts.google.com/Login')
         self.driver.implicitly_wait(10)
 
-    #Close web broser
+    # Close web broser
     def tearDown(self) -> None:
         self.driver.quit()
 
@@ -63,7 +63,7 @@ class GmailLoginTest(unittest.TestCase):
             "//body/c-wiz[1]/div[1]/div[2]/c-wiz[1]/c-wiz[1]/div[1]/div[1]/div[3]/c-wiz[1]/nav[1]/ul[1]/li[2]/a[1]/div[2]")
         self.assertTrue(isFound, msg="Correct password login failed")
 
-    #Promp shows when incorrect password is used.
+    # #Promp shows when incorrect password is used.
     @data(['TTtestTTtestTT1@gmail.com','Hellow'])
     @unpack
     def test_2(self, username, password):
@@ -99,11 +99,11 @@ class GmailLoginTest(unittest.TestCase):
             "//body/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/span[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]")
         self.assertEqual(isFound.text, "Enter an email or phone number", msg="Prompt for none input in Email is wrong")
 
-    #Pseudo test case, not include in test suite.
+    # #Pseudo test case, not include in test suite.
     def test_6(self):
         print("A predo test case")
-
-    #login with white space input
+    #
+    # #login with white space input
     def test_7(self):
         self.InputEmail(" ")
         isFound = self.driver.find_element_by_xpath(
