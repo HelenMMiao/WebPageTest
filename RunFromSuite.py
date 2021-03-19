@@ -54,5 +54,8 @@ if __name__ == '__main__':
     #     runner.run(suite)
 
     '''Generate test report using Unittest'''
-    with open('Report/reportUnitTest.txt', 'w+') as report:
-        unittest.TextTestRunner(stream= report, verbosity=2).run(suite)
+    # with open('Report/reportUnitTest.txt', 'w+') as report:
+    #     unittest.TextTestRunner(stream= report, verbosity=2).run(suite)
+
+    '''Generate test report using BeautifulReport'''
+    BeautifulReport.BeautifulReport(suite).report(description="Same report from BeautifulReport", filename="reportBeautiful", report_dir='./Report')
