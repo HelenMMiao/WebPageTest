@@ -1,3 +1,4 @@
 # WebPageTest
-Web page automation, Python, Selenium, UnitTest(DDT, test suite).
+Python, Selenium, UnitTest(DDT, test suite), Report(HTMLTestRunner, BeautifulReport).
+Save screenshots when cases fail.
 

@@ -37,25 +37,25 @@ if __name__ == '__main__':
     -----------------------------------------------'''
 
     '''Using HTMLTestRunner to generate report'''
-    # # Define report's name and title
-    # report_name = "Test Report.html"
-    # report_path = './Report/'
-    # report_file = report_path + report_name
-    # report_title = "Test Result for login module"
-    # report_description = "Test result for login module with both valid and invalid input, also covering error guessing input"
-    # # Create report folder if it does not exist.
-    # if not os.path.exists(report_path):
-    #     os.mkdir(report_path)
-    # else:
-    #     pass
-    # # run cases from HTMLRunner and generate report
-    # with open(report_file, 'w') as report:
-    #     runner = HTMLTestRunner.HTMLTestRunner(stream=report, title=report_title, description=report_description)
-    #     runner.run(suite)
+    # Define report's name and title
+    report_name = "Test Report.html"
+    report_path = './Report/'
+    report_file = report_path + report_name
+    report_title = "Test Result for login module"
+    report_description = "Test result for login module with both valid and invalid input, also covering error guessing input"
+    # Create report folder if it does not exist.
+    if not os.path.exists(report_path):
+        os.mkdir(report_path)
+    else:
+        pass
+    # run cases from HTMLRunner and generate report
+    with open(report_file, 'w') as report:
+        runner = HTMLTestRunner.HTMLTestRunner(stream=report, title=report_title, description=report_description)
+        runner.run(suite)
 
     '''Generate test report using Unittest'''
     # with open('Report/reportUnitTest.txt', 'w+') as report:
     #     unittest.TextTestRunner(stream= report, verbosity=2).run(suite)
 
     '''Generate test report using BeautifulReport'''
-    BeautifulReport.BeautifulReport(suite).report(description="Same report from BeautifulReport", filename="reportBeautiful", report_dir='./Report')
+    # BeautifulReport.BeautifulReport(suite).report(description="Same report from BeautifulReport", filename="reportBeautiful", report_dir='./Report')
